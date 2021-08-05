@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sshd-config
+data:
+  sshd_config: |
+    AuthorizedKeysFile      .ssh/authorized_keys
+    PasswordAuthentication no
+    AllowTcpForwarding yes
+    GatewayPorts no
+    X11Forwarding no
+    PidFile /config/sshd.pid
+    Subsystem       sftp    /usr/lib/ssh/sftp-server -u 022
